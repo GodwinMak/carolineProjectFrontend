@@ -1,0 +1,14 @@
+[
+    {
+        "display_name": "Budget and Goods",
+        "route": "/"
+    },
+    {
+        "display_name": "Expences",
+        "route": "/expences"
+    },
+    {
+        "display_name": "Report",
+        "route": "/report"
+    }
+]

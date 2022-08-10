@@ -1,0 +1,14 @@
+.login__bg{
+    background-image: url('../assests/login.jpg');
+    height: 92vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden ;
+}
+
+@media screen and (max-width: 992px) {
+  .login__bg {
+    background-image: none;
+  }
+}

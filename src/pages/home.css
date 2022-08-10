@@ -1,0 +1,9 @@
+.home__bg {
+    background-image: url("../assests/homePage.jpg");
+    height: 92vh;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    /* width: 100%; */
+}
