@@ -19,3 +19,22 @@
     left: 60px;
     padding-left: 10px;
 }
+
+@media screen  and (max-width: 920px){
+
+    .maincontent{
+        padding: 10px;
+        width: calc(100vw - 60px);
+        left: 60px;
+        position: absolute;
+        height: 100vh;
+    }
+
+    .active{
+        padding: 10px;
+        width: calc(100vw - 60px);
+        left: 60px;
+
+    }
+    
+}

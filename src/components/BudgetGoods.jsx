@@ -1,7 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Button, Container, Form } from 'react-bootstrap';
 import Select from "react-select";
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
+
 
 
 import { userData, userPurchase } from '../utils/APIRoutes'
@@ -11,6 +13,26 @@ import { userData, userPurchase } from '../utils/APIRoutes'
 
 const BudgetGoods = () => {
     const [month, setMonth] = useState("")
+    const navigate = useNavigate();
+
+
+    const [currentUser, setCurrentUser] = useState({})
+
+
+
+    useEffect(() => {
+        const fetchItem = async () => {
+            if (!localStorage.getItem("EM-app-user")) {
+                navigate("/")
+
+
+            } else {
+                setCurrentUser(await JSON.parse(localStorage.getItem("EM-app-user")))
+            }
+        }
+
+        fetchItem();
+    }, [navigate])
 
     
 
@@ -20,7 +42,6 @@ const BudgetGoods = () => {
         price: 0,
 
     })
-    // const { addUserData } = useContext(GlobalContext);
 
     
 
@@ -37,12 +58,9 @@ const BudgetGoods = () => {
         { value: 'October', label: 'October' },
         { value: 'November', label: 'November' },
         { value: 'December', label: 'December' }
-
     ]
 
     
-console.log(month);
-console.log(values.budget);
     const handleChange = (event) => {
         setValues({ ...values, [event.target.name]: event.target.value });
     }
@@ -53,16 +71,33 @@ console.log(values.budget);
 
         await axios.post(userData,{
             month: month,
-            budget: values.budget
+            budget: values.budget,
+            userId: currentUser._id
         });
         
 
     }
 
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    useEffect(() => {
+      let temp = 0;
+      for(let i = 0; i < values.length; i++){
+          temp += parseInt(values[i].price)
+      }
+      setTotalPrice(temp);
+    }, [values])
+
+    
+
+
     const onSubimitGoods = async (event) => {
         event.preventDefault();
 
+        // if(totalPrice > budget)
+
         await axios.post(userPurchase, {
+            userId: currentUser._id,
             goodsName: values.goodsName,
             price: values.price
         })

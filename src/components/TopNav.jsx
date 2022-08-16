@@ -6,10 +6,7 @@ import user_menu from '../assests/json/user_menus.json'
 import './topnav.css'
 
 const TopNav = ({currentUser}) => {
-  // console.log(...User)
-  // const { currentUser } = useContext(UserContext)
-
-  // const currentUser = useContext(UserDataContext);
+  
 
   const Clock = ()=>{
     let time = new Date().toLocaleTimeString();
@@ -32,7 +29,6 @@ const TopNav = ({currentUser}) => {
     display_name: currentUser.firstName,
     image: currentUser.picture
   }
-console.log(curr_user)
   const renderUserToggle = (user)=>{
     return(
       <div className="topnav__right-user">

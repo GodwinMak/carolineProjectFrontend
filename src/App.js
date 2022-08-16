@@ -10,23 +10,13 @@ import Purchase from './components/Purchase';
 import Report from './components/Report';
 
 
-function App() {
 
-  const [currentUser, setCurrentUser] = useState({})
+
+function App() {
+  // const navigate = useNavigate();
+
 
   
-
-   useEffect(() => {
-    const fetchItem = async () => {
-      if (!localStorage.getItem("EM-app-user")) {
-      }else{
-        setCurrentUser(await JSON.parse(localStorage.getItem("EM-app-user")))
-      }
-    }
-
-    fetchItem();
-  }, [])
-  console.log(currentUser)
 
   
 
@@ -37,7 +27,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/dashboard" element={<DashBoard currentUser={currentUser}/>} >
+          <Route path="/dashboard" element={<DashBoard/>} >
             <Route path ='/dashboard' element={<BudgetGoods/>}/>
             <Route path = '/dashboard/makepurchase' element={<Purchase/>}/>
             <Route path = '/dashboard/report' element= {<Report/>}/>

@@ -1,4 +1,4 @@
- export const host = "http://localhost:5001";
+ export const host = "https://caroproject.herokuapp.com";
 
  export const signUpRoute = `${host}/api/v1/user/signup`
 export const loginRoute = `${host}/api/v1/user/login`
