@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 const Sidebar = ({setShow, show}) => {
 
     const [isLoggedin, setIsLoggedin] = useState(true);
+    console.log(isLoggedin)
 
     const navigate = useNavigate();
 

@@ -88,6 +88,8 @@ const BudgetGoods = () => {
       setTotalPrice(temp);
     }, [values])
 
+    console.log(totalPrice)
+
     
 
 
